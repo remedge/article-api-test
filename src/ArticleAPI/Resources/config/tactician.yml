@@ -1,0 +1,24 @@
+services:
+  articleApi.handler.create_article:
+    class: App\ArticleAPI\Application\Handler\CreateArticleHandler
+    arguments:
+      - '@articleApi.article.service'
+      - '@Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface'
+    tags:
+      - { name: tactician.handler, command: App\ArticleAPI\Application\Command\CreateArticleCommand }
+
+  articleApi.handler.edit_article:
+    class: App\ArticleAPI\Application\Handler\EditArticleHandler
+    arguments:
+      - '@articleApi.article.service'
+      - '@Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface'
+    tags:
+      - { name: tactician.handler, command: App\ArticleAPI\Application\Command\EditArticleCommand }
+
+  articleApi.handler.delete_article:
+    class: App\ArticleAPI\Application\Handler\DeleteArticleHandler
+    arguments:
+      - '@articleApi.article.service'
+      - '@Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface'
+    tags:
+      - { name: tactician.handler, command: App\ArticleAPI\Application\Command\DeleteArticleCommand }

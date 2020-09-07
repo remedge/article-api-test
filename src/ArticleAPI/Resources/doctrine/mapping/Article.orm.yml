@@ -1,0 +1,23 @@
+App\ArticleAPI\Domain\Article:
+    type: entity
+    table: articles
+#    repositoryClass: Application\ArticleAPI\Infrastructure\Repository\ArticleRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        title:
+            type: string
+            length: 100
+
+        body:
+            type: text
+
+        createdAt:
+            type: datetime
+
+        updatedAt:
+            type: datetime
+
+

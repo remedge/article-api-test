@@ -1,0 +1,24 @@
+articles.get.by.id:
+    path: "/api/articles/{id}"
+    methods: GET
+    controller: App\ArticleAPI\Http\Controller\GetOneController:action
+
+articles.list:
+    path: "/api/articles"
+    methods: GET
+    controller: App\ArticleAPI\Http\Controller\GetListController:action
+
+articles.create:
+    path: "/api/articles"
+    methods: POST
+    controller: App\ArticleAPI\Http\Controller\CreateController:action
+
+articles.edit:
+    path: "/api/articles/{id}"
+    methods: PUT
+    controller: App\ArticleAPI\Http\Controller\EditController:action
+
+articles.delete:
+    path: "/api/articles/{id}"
+    methods: DELETE
+    controller: App\ArticleAPI\Http\Controller\DeleteController:action

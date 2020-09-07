@@ -1,0 +1,27 @@
+imports:
+  - { resource: "tactician.yml" }
+
+services:
+  articleApi.article.repository:
+    class: App\ArticleAPI\Infrastructure\Repository\ArticleRepository
+    public: true
+    arguments: [
+      '@doctrine.orm.entity_manager',
+    ]
+  App\ArticleAPI\Infrastructure\ArticleRepositoryInterface: '@articleApi.article.repository'
+
+  articleApi.article.service:
+      class: App\ArticleAPI\Application\ArticleService
+      public: true
+      arguments: [
+          '@articleApi.article.repository',
+      ]
+  App\ArticleAPI\Application\ArticleServiceInterface: '@articleApi.article.service'
+
+  articleApi.article.command.bus:
+    class: App\ArticleAPI\Infrastructure\CommandBus\Adapter\Tactician
+    public: true
+    arguments: [
+        '@tactician.commandbus',
+    ]
+  App\ArticleAPI\Application\CommandBusInterface: '@articleApi.article.command.bus'
